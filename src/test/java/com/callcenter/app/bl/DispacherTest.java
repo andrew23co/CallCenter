@@ -17,8 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Se han entregado detalles de la ejecución del programa en cada una de las clases
- * y metodos, adicionalmente hay mas información de su implementación en el 
- * archivo Readme dentro del repositorio publico.
+ * y metodos, adicionalmente hay mas información de su implementación en la 
+ * Wiki dentro del repositorio publico.
  * @author Gamba
  */
 public class DispacherTest {

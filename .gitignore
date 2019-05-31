@@ -1,1 +1,7 @@
 /nbproject/
+/target/surefire-reports/
+/target/test-classes/
+/target/classes/
+/target/maven-status/
+/target/CallCenter-1.0-SNAPSHOT.jar
+/target/javadoc-bundle-options/
