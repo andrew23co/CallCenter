@@ -1,10 +1,6 @@
 
 import com.callcenter.app.bl.Dispacher;
 import com.callcenter.app.entities.Call;
-import com.callcenter.app.entities.Director;
-import com.callcenter.app.entities.Employee;
-import com.callcenter.app.entities.Operator;
-import com.callcenter.app.entities.Supervisor;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,31 +16,36 @@ import java.util.TimerTask;
 public class CallCenter {
 
     public static void main(String[] args) {
-        
-        Dispacher dp = Dispacher.getInstance();
-        
-        
+
+        Dispacher dp = Dispacher.getInstance(10, 2, 1);
+
         Timer timer;
         timer = new Timer();
-        
+
+        int timeInterval = 1;
 
         TimerTask task = new TimerTask() {
-            int tic = 0;
+            int nCall = 1;
+            int nCallMax = 10;
 
             @Override
             public void run() {
-
-                Call c1 = new Call();
-                dp.dispatchCall(c1);
+                if (nCall <= nCallMax) {
+                    Call c1 = new Call();
+                    dp.dispatchCall(c1);
+                    nCall = nCall + 1;
+                } else {
+                    timer.cancel();
+                }
             }
         };
-        timer.schedule(task, 10, 1000);
+        timer.schedule(task, 10, timeInterval * 1000);
 
+        dp.statistics();
 
 //        for (int i = 0; i < 20; i++) {
 //            Call c1 = new Call();
 //            dp.dispatchCall(c1);
 //        }
-
     }
 }

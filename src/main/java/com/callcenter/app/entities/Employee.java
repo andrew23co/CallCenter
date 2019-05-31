@@ -5,6 +5,7 @@ import com.callcenter.app.misc.Names;
 import java.util.Random;
 
 /**
+ * Clase empleado que generaliza los diferentes actores del Call Center
  *
  * @author Gamba
  */
@@ -15,51 +16,57 @@ public class Employee {
     private Integer nCalls = 0;
     private boolean busy = false;
 
-    public Employee(String c) {
+    /**
+     * Constructor de la clase, Esta sección establece un nombre y apellido aleatorio para el empleado
+     * que se configura al inicio del proceso de call center     
+     * @param code Recibe el codigo asignado al empleado por el call center
+     */
+    public Employee(String code) {
         Random rand = new Random();
-        this.code = c; // UUID.randomUUID().toString();
+        this.code = code; // UUID.randomUUID().toString();
         int numN = rand.nextInt((49 - 0) + 1) + 0;
         int numL = rand.nextInt((49 - 0) + 1) + 0;
-        this.name = Names.values()[numN].toString()+" "+LastNames.values()[numL].toString();
+        this.name = Names.values()[numN].toString() + " " + LastNames.values()[numL].toString();
     }
 
     /**
-     * @return the code
+     * @return El codigo del empleado
      */
     public String getCode() {
         return this.code;
     }
-    
-     /**
-     * @return the name
+
+    /**
+     * @return El nombre del empleado creado
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * @return the busy
+     * @return true Si el empleado esta ocupado en una llamada para asignar o no una
+     * llamada entrante
      */
     public boolean isBusy() {
         return busy;
     }
 
     /**
-     * @param busy the busy to set
+     * @param busy parametro que indica el estado actual del empleado
      */
-    public void setBusy(boolean busy) {                 
+    public void setBusy(boolean busy) {
         this.busy = busy;
     }
 
     /**
-     * @return the nCalls
+     * @return el número de llamadas total atendidas por el empleado hasta su invocación
      */
     public Integer getnCalls() {
         return nCalls;
     }
-    
+
     /**
-     * @return the nCalls
+     * Método que indica que ha sido asignada una llamada al empleado
      */
     public void callAssined() {
         this.nCalls = this.nCalls + 1;

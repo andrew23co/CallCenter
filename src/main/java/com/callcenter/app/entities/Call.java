@@ -8,30 +8,32 @@ package com.callcenter.app.entities;
 import java.util.UUID;
 
 /**
- *
+ * Clase que actua como llamada entrante y que debe ser atendida por un empleado
  * @author Gamba
  */
 public class Call {
-
-    private String id = "call-"+UUID.randomUUID().toString();
+    
+    
+    // Identificador unico para cada llamada
+    private String id = "call-" + UUID.randomUUID().toString();    
     private Employee employee;
 
     /**
-     * @return the id
+     * @return El id de la llamada
      */
     public String getId() {
         return id;
     }
-    
+
     /**
-     * @return the employee
+     * @return El objeto del empleado que esta atendiendo la llamada
      */
     public Employee getEmployee() {
         return employee;
     }
 
     /**
-     * @param employee the employee to set
+     * @param employee establece el objeto empleado que atenderá la llamada
      */
     public void setEmployee(Employee employee) {
         this.employee = employee;
